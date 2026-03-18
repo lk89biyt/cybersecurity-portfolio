@@ -1,0 +1,31 @@
+# CTF Name - Neighbor
+
+## Overview
+- Platform: TryHackMe
+- Category: Exploitation
+- Difficulty: Easy
+
+## Challenge Description
+Check out our new cloud service, Authentication Anywhere -- log in from anywhere you would like! Users can enter their username and password, for a totally secure login process! You definitely wouldn't be able to find any secrets that other people have in their profile, right?
+
+## Approach
+When I first saw the website, I decided to inspect for any hints. It stated there existed a guest account. So to further inspect, I decided to inspect the page source which gave me additional hint about guest account. My initial thought process was to use simple passwords like guest itself which did allow me to log in. 
+My next approach was to inspect the url. upon further inspect, I noticed the user=guest was visible. That gave me the idea to replace guest with admin.
+## Steps Taken
+1. I navigated to the ip address: 10.64.160.129 on the web browser
+2. I went to the page source by right clicking and going to inspect page source
+3. Looking through the code, there was a hint about using guest as username
+4. I went back to login page and used guest as both username and password
+5. Once logged in to guest account, I navigated to page source again and noticed that admin is vulnerable
+6. I inspect the guest account and noticed the input for user was visible. user = guest
+7. I replaced guest with admin, so user=admin which led me to the flag
+
+## Solution
+By logging into the guest account, and replacing user=guest with user=admin in the url, I was able to retrieve the flag.
+## Flag
+
+
+
+
+## Key Takeaways
+- The specific type of vulnerability this is called is IDOR
