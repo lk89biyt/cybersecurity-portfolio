@@ -1,2 +1,57 @@
-Hands-on enterprise SOC lab using Wazuh, Windows 11,
-Ubuntu Server, and VirtualBox
+## Project Overview
+
+I built this SOC home lab to get more hands-on practice with security monitoring and investigation. 
+I used Wazuh, Windows 11, Ubuntu Server, and VirtualBox to create a small lab where I can generate Windows activity,
+collect logs, and see how that activity shows up in a SIEM. I also wanted to get better at troubleshooting when logs 
+or alerts do not show up the way I expect.
+
+## Environment
+
+- Wazuh
+- Windows 11
+- Ubuntu Server
+- VirtualBox
+- VirtualBox Internal Network for communication between the Windows VM and Ubuntu server
+- NAT adapter on Ubuntu for Internet access
+- Ubuntu Server internal IP: 10.1.2.2
+- Windows client IP: 10.1.2.10
+
+## What I Configured
+
+- Set up an Ubuntu Server VM and Windows 11 VM in VirtualBox
+- Configured a private internal network between Ubuntu and Windows
+- Set up DHCP on Ubuntu so the Windows VM could receive an IP address
+- Installed and configured Wazuh on the Ubuntu server
+- Connected the Windows endpoint to the Wazuh manager
+- Configured Windows Task Scheduler Operational logs so Wazuh could collect that telemetry
+- Enabled Wazuh raw event archiving for troubleshooting
+
+## Security Activities
+
+- Reviewed Windows security and Task Scheduler events in Event Viewer
+- Tested scheduled task activity and checked what Windows events were generated
+- Searched Wazuh Threat Hunting for the scheduled task and related Event IDs
+- Investigated missing telemetry when expected events did not appear in Wazuh
+- Verified the Wazuh agent was active and communicating with the manager
+- Enabled Task Scheduler Operational logging and generated new events for testing
+- Used Wazuh raw event archiving to help troubleshoot whether events were reaching the manager
+
+## Current Challenge / Next Milestone
+
+Right now I am troubleshooting whether Windows Task Scheduler Event ID 100 is actually reaching 
+the Wazuh manager. Windows is generating the event and the Wazuh agent is connected, but I still 
+need to confirm the event is being received on the manager side. My next step is to verify that 
+first before moving on to custom detection rules, Sysmon, or another attack scenario.
+
+## Skills Demonstrated
+
+- SIEM monitoring with Wazuh
+- Windows Event Viewer analysis
+- Windows endpoint telemetry analysis
+- Wazuh agent configuration
+- Log collection troubleshooting
+- Network troubleshooting
+- Linux server administration
+- Alert and event investigation
+- Hypothesis-based troubleshooting
+- Technical documentation
