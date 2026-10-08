@@ -6,10 +6,10 @@ alert involving `/usr/bin/md5sum` on my Ubuntu Server.
 
 ## 2. Alert Observed
 - **Severity:** Level 7
-- - **Rule ID:** 510
-  - - **Affected File:** `/usr/bin/md5sum`
-    - - **Affected System:** Ubuntu Server
-      - - **Alert Timestamp:** October 2, 2026, 4:37 (timezone not yet confirmed)
+- **Rule ID:** 510
+- **Affected File:** `/usr/bin/md5sum`
+- **Affected System:** Ubuntu Server
+- **Alert Timestamp:** October 2, 2026, 4:37 (timezone not yet confirmed)
 
 ## 3. Investigation
 I used the `dpkg -S /usr/bin/md5sum` command to identify which installed software package owned the flagged file. 
